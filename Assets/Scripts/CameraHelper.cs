@@ -9,7 +9,7 @@ public class CameraHelper: MonoBehaviour
 
     public float smooth = 2f;
 
-    public Vector3 offset = new Vector3(0, 2, -2);
+    public Vector3 offset = new Vector3 (1, 2, 1);
 
     void Start()
     {

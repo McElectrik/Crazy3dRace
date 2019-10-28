@@ -166,12 +166,12 @@ public class CarController : MonoBehaviour {
 
         //_reset = Input.GetKey("R"); //  нажата R  то ремонт машины
 
+        _reset = Input.GetKeyUp(KeyCode.R); //  нажата R  то ремонт машины
 
 
+        /*/ремонт
 
-        //ремонт
-
-            int AngleObjectZ = Mathf.FloorToInt(transform.eulerAngles.z); // если машина 
+        int AngleObjectZ = Mathf.FloorToInt(transform.eulerAngles.z); // если машина 
 
             AngleObjectZ = 400 - AngleObjectZ; // кренится
 
@@ -181,7 +181,7 @@ public class CarController : MonoBehaviour {
             _reset = 340 > AngleObjectZ && AngleObjectZ > 100 ? true : false; //_reset = true; // ставим машину на колеса 
 
             // _reset = false; // иначе машина на колесах
-       //
+       /*/
 
 
 
