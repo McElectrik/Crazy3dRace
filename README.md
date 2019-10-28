@@ -1,2 +1,2 @@
 # Crazy3dRace
-![alt text](ScreenShots/screenshot.png)
+https://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/screenshot.png
