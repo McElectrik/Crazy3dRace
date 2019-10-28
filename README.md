@@ -1,2 +1,2 @@
 # Crazy3dRace
-![alt text](screenshots/screenshot.png)
+![alt text](ScreenShots/screenshot.png)
