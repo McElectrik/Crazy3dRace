@@ -1,2 +1,2 @@
 # Crazy3dRace
-https://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/Screenshot.png
+github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png
