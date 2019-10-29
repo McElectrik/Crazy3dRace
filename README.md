@@ -4,7 +4,7 @@
 
 
 
-<img src="ScreenShots/1.png" />
+<img src="http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png" />
 
 
 
