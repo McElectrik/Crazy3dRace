@@ -2,6 +2,7 @@
 
 ![Image alt](http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png)
 
+![alt text](http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png)
 
 
 <img scr= "http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png">
