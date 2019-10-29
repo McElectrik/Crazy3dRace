@@ -4,7 +4,7 @@
 
 
 
-<img src="ScreenShots/1.png" width="200" height="50"/>
+<img src="ScreenShots/1.png" />
 
 
 
