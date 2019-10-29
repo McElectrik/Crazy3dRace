@@ -1,10 +1,10 @@
 # Crazy3dRace
 
-![alt tag](http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png"      ")
+![alt tag](http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png "      ")
 
 
 
-
+<img src="ScreenShots/1.png" width="200" height="50"/>
 
 
 
