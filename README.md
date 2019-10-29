@@ -1,5 +1,5 @@
 # Crazy3dRace
-/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png
+http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/1.png
 
 http://github.com/McElectrik/Crazy3dRace/tree/master/ScreenShots/2.png
 
