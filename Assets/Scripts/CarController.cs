@@ -27,15 +27,22 @@ public class CarController : MonoBehaviour {
     public float _vertical; // вперед назад
    public float _horizontal; // влево вправо
 
-    Vector3 OldTranfsorm; //старые координаты
+    //Vector3 OldTranfsorm; //старые координаты
     public int speed; //скорость машины
     float dist; //расстояние пройденое за время
+    public float _Rpm;
+    //public float _Speed2;
 
+    Rigidbody rb;
+
+    
 
     void Start()
     {
         //экран не будет гаснуть
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+         rb = GetComponent<Rigidbody>();
     }
 
 
@@ -66,8 +73,10 @@ public class CarController : MonoBehaviour {
 
         UpdateSpeed(); // метод вычисления скорости
 
-     
-        float motor = maxMotorTorque * _vertical; // ускорение
+       
+
+
+    float motor = maxMotorTorque * _vertical; // ускорение
             float steering = maxSteeringAngle * _horizontal; // поворот колес
         
 		
@@ -80,6 +89,8 @@ public class CarController : MonoBehaviour {
             if (axleInfo.motor) {
                 axleInfo.leftWheel.motorTorque = motor; 
                 axleInfo.rightWheel.motorTorque = motor;
+
+                
             }
 			
 			if (axleInfo.brake) {
@@ -93,13 +104,16 @@ public class CarController : MonoBehaviour {
                 axleInfo.rightWheel.brakeTorque = 0;
 				}					
 			}
-			 
+
+            _Rpm = axleInfo.rightWheel.rpm; // округление и перевод в int
+
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            
         }
 
-        
 
+        
 
     }
 	
@@ -109,8 +123,9 @@ public class CarController : MonoBehaviour {
 	
 	{
 
+        _Rpm = Mathf.FloorToInt(_Rpm);
 
-        
+
         if (transform.position.y < -5) // если машина упала за карту
 
         {
@@ -234,11 +249,15 @@ public class CarController : MonoBehaviour {
 
    void UpdateSpeed()
     {
-        dist = Vector3.Distance(OldTranfsorm, transform.position); // расстояние пройденое за 0,02 сек
+        /*dist = Vector3.Distance(OldTranfsorm, transform.position); // расстояние пройденое за 0,02 сек
         dist = dist * 180; // расстояние пройденое в км/ч
         speed = Mathf.FloorToInt(dist); // округление и перевод в int
         OldTranfsorm = transform.position; // сохранение старых координат
+    */
+
+        speed = Mathf.FloorToInt(rb.velocity.magnitude * 3.6f); // округление и перевод в int
     }
+
 
    
    
