@@ -2133,6 +2133,36 @@ PrefabInstance:
       propertyPath: axleInfos.Array.data[1].brake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6550457944923740961, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272058654720559267, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324174089808622524, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864434703089628384, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864434703089628384, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455513665620480421, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1, type: 3}
 --- !u!1001 &1858620399

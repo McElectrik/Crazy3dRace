@@ -36,13 +36,24 @@ public class CarController : MonoBehaviour {
     Rigidbody rb;
 
     
+    
+        
 
+   
+        
+    
     void Start()
     {
         //экран не будет гаснуть
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
          rb = GetComponent<Rigidbody>();
+
+        
+
+
+       
+        //SoundTrack.PlaySound(testSound);
     }
 
 
