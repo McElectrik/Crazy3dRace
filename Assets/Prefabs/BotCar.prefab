@@ -144,16 +144,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c199c8aa868b1b747b89b53feb019335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axleInfos: []
-  maxMotorTorque: 0
-  maxSteeringAngle: 0
-  maxbrake: 0
+  axleInfos:
+  - leftWheel: {fileID: 1224745994610571416}
+    rightWheel: {fileID: 1990078305385373656}
+    motor: 1
+    steering: 1
+    brake: 0
+  - leftWheel: {fileID: 6036266286246869369}
+    rightWheel: {fileID: 5581980718946150671}
+    motor: 1
+    steering: 0
+    brake: 1
+  maxMotorTorque: 500
+  maxSteeringAngle: 30
+  maxbrake: 1
   _reset: 0
   _brake: 0
   _vertical: 0
   _horizontal: 0
   speed: 0
-  _Rpm: 0
+  GameState: 0
 --- !u!114 &3368648982302099787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196dee33446e86746b9ecc33a7ddcad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PicthState: 1.5
   speed: 0
   EngineSound: {fileID: 8300000, guid: a2508a30087347a458565496131570db, type: 3}
 --- !u!1 &4064517057733409604

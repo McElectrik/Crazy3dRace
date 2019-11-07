@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
+
 public class GameHelper : MonoBehaviour
 {
-    // Start is called before the first frame update
 
+    public int GameState; // состояние игры 0-game over   1 - game
     public Transform [] gate;  // массив ворот
 
                   int NgateOld, Ngate; // номер старых и новых ворот

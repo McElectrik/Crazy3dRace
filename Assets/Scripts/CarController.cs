@@ -30,8 +30,15 @@ public class CarController : MonoBehaviour {
     //Vector3 OldTranfsorm; //старые координаты
     public int speed; //скорость машины
     float dist; //расстояние пройденое за время
-    public float _Rpm;
-    //public float _Speed2;
+                //public float _Rpm;
+                //public float _Speed2;
+
+   public int GameState; // состояние игры 0-game over   1 - game
+
+    GameObject GameHelper;// ссылка на обьект
+
+    int gameover = 0;
+    int game = 1;
 
     Rigidbody rb;
 
@@ -44,16 +51,20 @@ public class CarController : MonoBehaviour {
     
     void Start()
     {
-        //экран не будет гаснуть
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
-         rb = GetComponent<Rigidbody>();
-
         
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;  //экран не будет гаснуть
+
+        rb = GetComponent<Rigidbody>();
+
+         GameHelper = GameObject.Find("GameHelper"); // ссылка на GameHelper
 
 
-       
-        //SoundTrack.PlaySound(testSound);
+        // GameState = GameHelper.GetComponent<GameHelper>().GameState;
+        //print(GameState);
+        // GameState = GameState;
+
+
+
     }
 
 
@@ -83,65 +94,86 @@ public class CarController : MonoBehaviour {
      {
 
         UpdateSpeed(); // метод вычисления скорости
+        
 
        
 
+            if (GameState == gameover)
+            {
+                _vertical = 0;
+                _horizontal = 0;
+                _brake = true;
 
-    float motor = maxMotorTorque * _vertical; // ускорение
+            }
+            else
+            {
+                _brake = false;
+
+
+            }
+
+            float motor = maxMotorTorque * _vertical; // ускорение
             float steering = maxSteeringAngle * _horizontal; // поворот колес
-        
-		
-		
-        foreach (AxleInfo axleInfo in axleInfos) {
-            if (axleInfo.steering) {
-                axleInfo.leftWheel.steerAngle = steering;
-                axleInfo.rightWheel.steerAngle = steering;
+
+
+
+            foreach (AxleInfo axleInfo in axleInfos)
+            {
+                if (axleInfo.steering)
+                {
+                    axleInfo.leftWheel.steerAngle = steering;
+                    axleInfo.rightWheel.steerAngle = steering;
+                }
+                if (axleInfo.motor)
+                {
+                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = motor;
+
+
+                }
+
+                if (axleInfo.brake)
+                {
+                    if (_brake)
+                    {
+                        axleInfo.leftWheel.brakeTorque = maxbrake;
+                        axleInfo.rightWheel.brakeTorque = maxbrake;
+                    }
+                    else
+                    {
+                        axleInfo.leftWheel.brakeTorque = 0;
+                        axleInfo.rightWheel.brakeTorque = 0;
+                    }
+                }
+
+                //_Rpm = axleInfo.rightWheel.rpm; // округление и перевод в int
+
+                ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+                ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+
             }
-            if (axleInfo.motor) {
-                axleInfo.leftWheel.motorTorque = motor; 
-                axleInfo.rightWheel.motorTorque = motor;
-
-                
-            }
-			
-			if (axleInfo.brake) {
-				if (_brake) { 
-                axleInfo.leftWheel.brakeTorque = maxbrake;
-                axleInfo.rightWheel.brakeTorque = maxbrake;
-				}
-				else  
-				{
-				axleInfo.leftWheel.brakeTorque = 0;
-                axleInfo.rightWheel.brakeTorque = 0;
-				}					
-			}
-
-            _Rpm = axleInfo.rightWheel.rpm; // округление и перевод в int
-
-            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
-            
-        }
 
 
-        
+         
 
     }
-	
-	  
+
+
 
     void Update()
-	
-	{
 
-        _Rpm = Mathf.FloorToInt(_Rpm);
+    {
+
+
+        GameState = GameHelper.GetComponent<GameHelper>().GameState;  // получаем состояние игры 
+        // _Rpm = Mathf.FloorToInt(_Rpm);
 
 
         if (transform.position.y < -5) // если машина упала за карту
 
         {
 
-            transform.position = new Vector3 (200, 1, 290); // возвращаем обьект на карту
+            transform.position = new Vector3(200, 1, 290); // возвращаем обьект на карту
 
         }
 
@@ -149,21 +181,36 @@ public class CarController : MonoBehaviour {
         if (tag == "Player") // если это пользователь проверяем кнопки
 
         {
-            PlayerCarControl(); 
+            PlayerCarControl();
 
         }
-        
 
 
-        if (speed < 1)  ResetCar(); // если скорость = 0 то разрешаем  ремонт
+
+        if (speed < 1) ResetCar(); // если скорость = 0 то разрешаем  ремонт
 
         if (speed > 10)
         {
-            if (_vertical == -1 )
+            if (_vertical == -1)
             {
                 _vertical = 0;
             }
         }
+        
+/*
+        if (GameState == gameover)
+        {
+            _vertical = 0; 
+            _horizontal = 0;
+            _brake = true;
+
+        }
+        else
+        {
+            _brake = false;
+        }
+    
+        */
 
     }
 	   

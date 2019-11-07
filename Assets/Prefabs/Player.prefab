@@ -72,8 +72,8 @@ MonoBehaviour:
     motor: 1
     steering: 1
     brake: 0
-  - leftWheel: {fileID: 6550457946631104928}
-    rightWheel: {fileID: 6550457946040324351}
+  - leftWheel: {fileID: 6550457946040324351}
+    rightWheel: {fileID: 6550457946631104928}
     motor: 0
     steering: 0
     brake: 1
@@ -85,7 +85,7 @@ MonoBehaviour:
   _vertical: 0
   _horizontal: 0
   speed: 0
-  _Rpm: 0
+  GameState: 0
 --- !u!114 &6550457944923740960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -994,7 +994,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -1081,6 +1081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196dee33446e86746b9ecc33a7ddcad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PicthState: 1.3
+  PicthState: 1.2
   speed: 0
   EngineSound: {fileID: 8300000, guid: a2508a30087347a458565496131570db, type: 3}
