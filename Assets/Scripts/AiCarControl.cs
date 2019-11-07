@@ -80,6 +80,8 @@ public class AiCarControl : MonoBehaviour
 
         GetComponent<CarController>()._reset = _reset; // ремонт 
 
+        GetComponent<CarController>()._brake = false;
+
         if (Time.time > TimeMode) Mode = 0;  // если время вышло  поиск цели
 
     }

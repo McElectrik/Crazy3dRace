@@ -63,7 +63,7 @@ public class CarController : MonoBehaviour {
         //print(GameState);
         // GameState = GameState;
 
-
+      
 
     }
 
@@ -107,7 +107,7 @@ public class CarController : MonoBehaviour {
             }
             else
             {
-                _brake = false;
+                //_brake = false;
 
 
             }

@@ -39,7 +39,7 @@ public class UICarHelper : MonoBehaviour
 
         dist = Vector3.Distance(transform.position, target.transform.position);
         dlina = Mathf.FloorToInt(dist);
-        //dlina = 1000;
+        
 
         print_speed.text = speed.ToString() + " Km/h"; // пишем в канвас
                                                        
