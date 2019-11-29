@@ -7,13 +7,15 @@ public class CameraHelper: MonoBehaviour
 
     public Transform target; // обьект за которым нужно следить
 
+    public Transform point; 
+
     public float smooth = 2f;
 
     public Vector3 offset = new Vector3 (1, 2, 1);
 
     void Start()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * smooth); // положение камеры
+        transform.position = Vector3.Lerp(transform.position, point.position + offset, Time.deltaTime * smooth); // положение камеры
 
 
         transform.LookAt(target); // поворачиваем обьект на цель 
@@ -24,7 +26,7 @@ public class CameraHelper: MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * smooth); // положение камеры
+        transform.position = Vector3.Lerp(transform.position, point.position + offset, Time.deltaTime * smooth); // положение камеры
 
 
         transform.LookAt(target); // поворачиваем обьект на цель 

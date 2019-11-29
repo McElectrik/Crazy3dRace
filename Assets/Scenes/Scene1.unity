@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -88,8 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000000, guid: d6a1db77061123845b5e33339552b807,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -172,16 +171,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_FontSize: 80
     m_FontStyle: 3
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 72
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!222 &5251757
@@ -226,7 +225,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 4e6e8f00a0a196c4db6efdc986b8a800, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &169905591
 Terrain:
   m_ObjectHideFlags: 0
@@ -457,6 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartSound: {fileID: 8300000, guid: f1714ce34af7c18469b2d50b6ee91839, type: 3}
+  StartSoundEnd: {fileID: 8300000, guid: 4218ddba2b3d8c0439ba6fab6d3b4e6b, type: 3}
+  CaptureGate: {fileID: 8300000, guid: b4706d4507482354aa302809668d963d, type: 3}
   Print_Info: {fileID: 5251756}
   GameState: 0
   gate:
@@ -491,18 +492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e716b5d789804114f90d9bf2ad5e27e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audio: {fileID: 0}
-  StartSound: {fileID: 8300000, guid: f1714ce34af7c18469b2d50b6ee91839, type: 3}
 --- !u!82 &449704467
 AudioSource:
   m_ObjectHideFlags: 0
@@ -775,7 +764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 871905146}
-  smooth: 1
+  point: {fileID: 871905146}
+  smooth: 1.5
   offset: {x: 1, y: 1, z: -1}
 --- !u!1001 &561375687
 PrefabInstance:
@@ -1925,6 +1915,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8003602944511242563, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6550457944923740965, guid: 9aa48172b6b7e9c4f9fd3cb5bd4e1ed1,
         type: 3}
       propertyPath: m_Name

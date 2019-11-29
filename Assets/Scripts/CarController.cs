@@ -18,18 +18,18 @@ public class CarController : MonoBehaviour {
     public float maxSteeringAngle; // мах угол поворота колес
 	public float maxbrake; // тормоз
     float timeReset; // Время после которого будет следующий ремонт
- 
 
-   public bool _reset; //  ремонт
+   
+    public bool _reset; //  ремонт
    public bool _brake; //  ручник 
-    bool flagreset; // флаг ResetCar()
+   bool flagreset; // флаг ResetCar()
 
-    public float _vertical; // вперед назад
+   public float _vertical; // вперед назад
    public float _horizontal; // влево вправо
 
     //Vector3 OldTranfsorm; //старые координаты
-    public int speed; //скорость машины
-    float dist; //расстояние пройденое за время
+   public int speed; //скорость машины
+   float dist; //расстояние пройденое за время
                 //public float _Rpm;
                 //public float _Speed2;
 
@@ -316,8 +316,14 @@ public class CarController : MonoBehaviour {
         speed = Mathf.FloorToInt(rb.velocity.magnitude * 3.6f); // округление и перевод в int
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
 
-   
-   
+        transform.GetComponent<AudioHelper>().StateCollision = true;
+
+
+    }
+
+
 
 }

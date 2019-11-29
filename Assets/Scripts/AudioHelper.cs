@@ -6,34 +6,64 @@ public class AudioHelper : MonoBehaviour
 {
 
 
- public float PicthState = 1.5f;
-    public float speed;
-    AudioSource audio;
-    public AudioClip EngineSound;
-    
+    public bool StateCollision = false;
 
-    // Start is called before the first frame update
+
+    public float PicthState = 1.5f;
+
+    public float speed;
+
+    AudioSource AudioSourceEngineSound;
+
+    AudioSource AudioSourceCrashSound;
+
+    public AudioClip EngineSound;
+
+    public AudioClip CrashSound;
+   
+    
     void Start()
     {
 
-        audio = GetComponent<AudioSource>();
-        audio.clip = EngineSound;
-        audio.Play();
+        AudioSourceEngineSound = GetComponent<AudioSource>();
+        AudioSourceEngineSound.clip = EngineSound;
+        AudioSourceEngineSound.Play();
 
-        
+        AudioSourceCrashSound = GetComponent<AudioSource>();
+        AudioSourceCrashSound.clip = CrashSound;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        speed = transform.parent.GetComponent<CarController>().speed;
+        speed = transform.GetComponent<CarController>().speed;
        //float  vertical = transform.parent.GetComponent<CarController>()._vertical;
         speed = speed / 50;
-        audio.pitch = PicthState + speed;// * vertical;
 
 
-        
+
+
+        //audio.clip = EngineSound;
+
+        AudioSourceEngineSound.pitch = PicthState + speed;// * vertical;
+
+
+
+        if (StateCollision)
+        {
+            print("crash");
+
+
+            StateCollision = false;
+            
+           // AudioSourceCrashSound.Play();
+
+
+        }
+
+
     }
 
 }

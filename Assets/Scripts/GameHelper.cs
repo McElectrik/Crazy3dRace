@@ -13,7 +13,16 @@ public class GameHelper : MonoBehaviour
 
     AudioSource audio;
 
+   
+
     public AudioClip StartSound;
+
+    public AudioClip StartSoundEnd;
+
+    public AudioClip CaptureGate;
+
+
+
 
     public Text Print_Info;  // инфа об игре
 
@@ -42,27 +51,33 @@ public class GameHelper : MonoBehaviour
         StartCoroutine(StartGame());
 
         audio = GetComponent<AudioSource>();
-        audio.clip = StartSound;
-        //audio.Play();
 
+        audio.clip = StartSound;
+
+      
     }
 
 
     IEnumerator StartGame()
     {
-        for (int count = 1; count < 5 ; count++)
-       {           
-            
+       
+        for (int count = 1; count < 5; count++)
+       {
+           
             yield return new WaitForSeconds(1);
             audio.Play();
             Print_Info.text = count.ToString();
         }
-        
+
+        audio.clip = StartSoundEnd;
+        audio.Play();
+
         Print_Info.text = "Поехали!";
 
         GameState = game;
 
         StartCoroutine(Clear_Info());
+
     }
 
 
@@ -70,7 +85,7 @@ public class GameHelper : MonoBehaviour
     IEnumerator Clear_Info()
     {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         Print_Info.text = "";
     }
@@ -86,6 +101,16 @@ public class GameHelper : MonoBehaviour
         
         if (gate[Ngate].GetComponent<GateHelper>().targetState == false)  // если выбранные ворота не активны 
         {
+
+            audio.clip = CaptureGate;
+
+            audio.Play();
+
+            Print_Info.text = "Ворота захвачены";
+
+            StartCoroutine(Clear_Info());
+
+
             do
             {
                 Ngate = UnityEngine.Random.Range(0, gate.Length); // выбираем новые ворота
